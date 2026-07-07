@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Potrebna su dva davaoca krvi — apel za pomoć</title>
+<meta name="description" content="Supruga ima zakazanu hiruršku intervenciju i potrebne su dve jedinice krvi. Bilo koja krvna grupa. Institut za transfuziju krvi Srbije, Svetog Save 39, Beograd — najkasnije do subote 11. jula.">
+
+<link rel="canonical" href="https://mrpaki.github.io/apel-davaoci-krvi/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="sr_RS">
+<meta property="og:url" content="https://mrpaki.github.io/apel-davaoci-krvi/">
+<meta property="og:title" content="Potrebna su dva davaoca krvi ❤️ Bilo koja krvna grupa">
+<meta property="og:description" content="Supruzi je zakazana operacija — potrebne su dve jedinice krvi da bi mogla da se obavi. Institut za transfuziju krvi, Svetog Save 39, Beograd, do subote 11. jula. Hvala vam od srca.">
+<meta property="og:image" content="https://mrpaki.github.io/apel-davaoci-krvi/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Potrebna su dva davaoca krvi ❤️ Bilo koja krvna grupa">
+<meta name="twitter:description" content="Do subote 11. jula — Institut za transfuziju krvi Srbije, Svetog Save 39, Beograd. Hvala vam od srca.">
+<meta name="twitter:image" content="https://mrpaki.github.io/apel-davaoci-krvi/og-image.png">
+
+<!-- Favicon paket -->
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#B42025">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;700&display=swap&subset=latin-ext" rel="stylesheet">
+
+<script>
+/* ============================================================
+   EVIDENCIJA DAVALACA — jedino mesto koje ručno menjaš.
+   Kada se davalac javi da je darovao krv, dodaj red i uploaduj
+   fajl ponovo na hosting. Stranica sve ostalo radi sama.
+
+   Format:  { ime: "Ime P.", datum: "9. jul", vreme: "10:30" }
+   - "ime": upiši onako kako se davalac saglasio da bude javno
+     prikazano (npr. samo ime i inicijal). Ako ne želi javno,
+     upiši npr. "Anonimni davalac".
+   - "vreme" je opciono — može i prazan string "".
+
+   Primer sa jednim davaocem:
+   const DAVAOCI = [
+     { ime: "Marko P.", datum: "9. jul", vreme: "10:30" },
+   ];
+   ============================================================ */
+const DAVAOCI = [
+  // { ime: "Marko P.", datum: "9. jul", vreme: "10:30" },
+];
+const POTREBNO = 2;
+</script>
+
+<style>
+:root{
+  --red:#B42025;
+  --red-deep:#7C1216;
+  --ivory:#FAF6F1;
+  --rose:#F4E4DF;
+  --green:#2E7D4F;
+  --green-soft:#E4F1E8;
+  --ink:#2A2118;
+  --muted:#6E6259;
+  --bar-h:72px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:'Inter',system-ui,sans-serif;
+  background:var(--ivory);
+  color:var(--ink);
+  line-height:1.6;
+  padding-bottom:calc(var(--bar-h) + env(safe-area-inset-bottom));
+}
+.wrap{max-width:640px;margin:0 auto;padding:0 18px}
+@media(min-width:480px){.wrap{padding:0 22px}}
+
+/* ---------- Traka "apel ispunjen" (prikazuje se tek kad su oba mesta popunjena) ---------- */
+#done-banner{
+  display:none;background:var(--green);color:#fff;text-align:center;
+  padding:12px 18px;font-weight:700;font-size:15px;
+}
+
+/* ---------- Hero ---------- */
+.hero{padding:48px 0 36px;text-align:center;position:relative;overflow:hidden}
+.hero::before{
+  content:"";position:absolute;inset:auto -40% -240px -40%;height:340px;
+  background:radial-gradient(closest-side,var(--rose),transparent 75%);
+  z-index:-1;
+}
+.logo{width:88px;height:auto;margin:0 auto 20px;display:block;animation:beat 2.4s ease-in-out infinite;transform-origin:50% 60%}
+@keyframes beat{0%,100%{transform:scale(1)}12%{transform:scale(1.06)}24%{transform:scale(1)}36%{transform:scale(1.045)}48%{transform:scale(1)}}
+@media (prefers-reduced-motion:reduce){.logo{animation:none}}
+.eyebrow{
+  display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--red);
+  border:1.5px solid var(--red);border-radius:999px;padding:7px 15px;margin-bottom:18px;
+}
+body.done .eyebrow{color:var(--green);border-color:var(--green)}
+h1{
+  font-family:'Lora',Georgia,serif;font-weight:600;
+  font-size:clamp(28px,7.5vw,44px);line-height:1.18;letter-spacing:-.01em;
+}
+h1 em{font-style:italic;color:var(--red)}
+.deadline{margin-top:14px;font-size:16.5px;color:var(--muted)}
+.deadline strong{color:var(--ink)}
+.hero-call{
+  margin-top:18px;display:inline-flex;align-items:center;gap:8px;
+  background:#fff;border:1.5px solid var(--rose);border-radius:999px;
+  padding:11px 20px;text-decoration:none;color:var(--red-deep);
+  font-weight:700;font-size:15.5px;box-shadow:0 6px 16px -10px rgba(124,18,22,.4);
+}
+
+/* ---------- Brojač / mesta za davaoce ---------- */
+.tracker{padding:6px 0 34px}
+.tracker h2{font-family:'Lora',serif;font-size:21px;font-weight:600;margin-bottom:4px}
+.tracker .sub{font-size:14.5px;color:var(--muted);margin-bottom:18px}
+.progress{
+  height:12px;border-radius:999px;background:var(--rose);
+  overflow:hidden;margin-bottom:20px;
+}
+.progress i{
+  display:block;height:100%;width:0%;border-radius:999px;
+  background:linear-gradient(90deg,var(--red),var(--red-deep));
+  transition:width .8s ease;
+}
+body.done .progress i{background:linear-gradient(90deg,var(--green),#1F5C39)}
+.slots{display:grid;gap:12px}
+@media(min-width:520px){.slots{grid-template-columns:1fr 1fr}}
+.slot{
+  border-radius:16px;padding:18px;display:flex;gap:14px;align-items:center;
+}
+.slot .drop{flex:0 0 44px;height:52px}
+.slot-empty{
+  background:transparent;border:2px dashed #D9CCC3;color:var(--muted);
+}
+.slot-empty .t1{font-weight:600;color:var(--ink);font-size:15.5px}
+.slot-empty .t2{font-size:13.5px}
+.slot-full{
+  background:var(--green-soft);border:1.5px solid #BFDCC9;
+}
+.slot-full .t1{font-weight:700;font-size:16px;color:var(--ink)}
+.slot-full .t2{font-size:13.5px;color:var(--green);font-weight:600}
+.slot-full .t3{font-size:13px;color:var(--muted)}
+.tracker .report{
+  margin-top:16px;background:#fff;border:1px solid #ECE1DA;border-radius:14px;
+  padding:14px 16px;font-size:14.5px;color:var(--muted);
+}
+.tracker .report a{color:var(--red);font-weight:700;text-decoration:none}
+
+/* ---------- Priča ---------- */
+.story{padding:8px 0 36px}
+.story p{
+  font-family:'Lora',Georgia,serif;font-size:18.5px;line-height:1.75;
+  margin-bottom:1.2em;
+}
+.story .lead::first-letter{
+  font-size:3.1em;font-weight:600;color:var(--red);
+  float:left;line-height:.85;padding:4px 10px 0 0;
+}
+.story .thanks{font-style:italic;color:var(--red-deep)}
+
+/* ---------- Info kartica ---------- */
+.card{
+  background:#fff;border:1px solid #ECE1DA;border-radius:18px;
+  padding:24px 20px;margin:0 0 30px;
+  box-shadow:0 10px 30px -18px rgba(124,18,22,.25);
+}
+@media(min-width:480px){.card{padding:26px 24px}}
+.card h2{font-family:'Lora',serif;font-size:21px;font-weight:600;margin-bottom:16px}
+.row{display:flex;gap:14px;align-items:flex-start;padding:12px 0;border-top:1px dashed #ECE1DA}
+.row:first-of-type{border-top:none}
+.row .ico{
+  flex:0 0 40px;height:40px;border-radius:12px;background:var(--rose);
+  display:grid;place-items:center;font-size:18px;
+}
+.row .label{font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.row .val{font-size:16px;font-weight:500}
+.row .val a{color:var(--red);text-decoration:none;font-weight:700}
+.note{
+  margin-top:16px;background:var(--rose);border-radius:12px;
+  padding:13px 16px;font-size:14px;color:var(--red-deep);
+}
+
+/* ---------- Poziv callout ---------- */
+.call-out{
+  background:var(--red);color:#fff;border-radius:18px;
+  padding:22px 20px;text-align:center;margin-bottom:34px;
+  box-shadow:0 12px 28px -14px rgba(180,32,37,.6);
+}
+.call-out .big{font-family:'Lora',serif;font-size:20px;font-weight:600;margin-bottom:6px}
+.call-out .num{font-size:26px;font-weight:700;letter-spacing:.02em}
+.call-out a{color:#fff;text-decoration:none}
+.call-out .small{font-size:13.5px;opacity:.85;margin-top:6px}
+
+/* ---------- Kako pomoći ---------- */
+.help{padding-bottom:44px}
+.help h2{font-family:'Lora',serif;font-size:21px;font-weight:600;margin-bottom:16px}
+.help ol{list-style:none;counter-reset:k}
+.help li{
+  counter-increment:k;position:relative;padding:0 0 16px 46px;font-size:15.5px;
+}
+.help li::before{
+  content:counter(k);position:absolute;left:0;top:0;
+  width:30px;height:30px;border-radius:50%;
+  background:var(--red);color:#fff;font-weight:700;font-size:14px;
+  display:grid;place-items:center;
+}
+
+/* ---------- Footer ---------- */
+footer{
+  text-align:center;padding:26px 18px 40px;font-size:13.5px;color:var(--muted);
+  border-top:1px solid #ECE1DA;
+}
+
+/* ---------- Sticky dugmad ---------- */
+.bar{
+  position:fixed;left:0;right:0;bottom:0;z-index:50;
+  display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:6px;
+  padding:8px 10px calc(8px + env(safe-area-inset-bottom));
+  background:rgba(250,246,241,.92);backdrop-filter:blur(10px);
+  border-top:1px solid #ECE1DA;
+}
+@media(min-width:520px){.bar{gap:10px;padding:10px 14px calc(10px + env(safe-area-inset-bottom))}}
+.btn{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;
+  min-height:56px;border-radius:14px;text-decoration:none;
+  font-weight:700;font-size:11.5px;transition:transform .12s ease;
+}
+@media(min-width:520px){.btn{flex-direction:row;gap:7px;font-size:15px;min-height:52px}}
+.btn:active{transform:scale(.96)}
+.btn svg{width:19px;height:19px;flex:none}
+.btn-call{background:var(--red);color:#fff;box-shadow:0 6px 18px -6px rgba(180,32,37,.55)}
+.btn-viber{background:#7360F2;color:#fff}
+.btn-whatsapp{background:#25D366;color:#fff}
+.btn-map{background:#fff;color:var(--ink);border:1.5px solid #D9CCC3}
+.btn:focus-visible{outline:3px solid var(--red-deep);outline-offset:2px}
+</style>
+</head>
+<body>
+
+<div id="done-banner">❤️ Apel je ispunjen — oba davaoca su darovala krv. Hvala vam svima!</div>
+
+<header class="hero">
+  <div class="wrap">
+    <!-- Logo: kap krvi sa srcem (zameni svojim logom po potrebi) -->
+    <svg class="logo" viewBox="0 0 100 110" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Kap krvi sa srcem — dobrovoljno davalaštvo krvi">
+      <path d="M50 4 C50 4 14 48 14 72 a36 36 0 0 0 72 0 C86 48 50 4 50 4 Z" fill="#B42025"/>
+      <path d="M50 4 C50 4 14 48 14 72 a36 36 0 0 0 72 0 C86 48 50 4 50 4 Z" fill="none" stroke="#7C1216" stroke-width="2.5" opacity=".35"/>
+      <path d="M50 88 C36 76 31 67 38 60 C42.5 55.5 49 57.5 50 63 C51 57.5 57.5 55.5 62 60 C69 67 64 76 50 88 Z" fill="#FAF6F1"/>
+    </svg>
+
+    <span class="eyebrow" id="eyebrow">Hitan apel · bilo koja krvna grupa</span>
+    <h1 id="headline">Potrebna su <em>dva dobrovoljna davaoca</em> krvi</h1>
+    <p class="deadline">najkasnije do <strong>subote, 11. jula</strong> · Institut za transfuziju krvi Srbije, Beograd</p>
+    <a class="hero-call" href="tel:+38163367681">📞 Za sva dodatna pitanja — pozovite!</a>
+  </div>
+</header>
+
+<main>
+  <!-- ======== BROJAČ DAVALACA ======== -->
+  <section class="tracker wrap" aria-live="polite">
+    <h2 id="tracker-title">Obezbeđeno 0 od 2 jedinice krvi</h2>
+    <p class="sub" id="tracker-sub">Čim se neko od davalaca javi da je darovao krv, ovde ćemo to upisati.</p>
+    <div class="progress"><i id="progress-fill"></i></div>
+    <div class="slots" id="slots"></div>
+    <div class="report">
+      Darovali ste krv? Javite nam se odmah — <a href="tel:+38163367681">pozivom</a> ili
+      <a href="viber://chat?number=%2B38163367681">Viber</a> ili <a href="https://wa.me/38163367681">WhatsApp</a> porukom — da upišemo vaše davanje
+      i da sledeći posetilac zna da li je još neko potreban.
+    </div>
+  </section>
+
+  <!-- ======== PRIČA ======== -->
+  <section class="story wrap">
+    <p class="lead">Mojoj supruzi je zakazana hirurška intervencija. Lekari su spremni, termin je određen — ali da bi operacija uopšte mogla da se obavi, potrebno je da se obezbede dve jedinice krvi.</p>
+    <p>Zato se obraćamo vama — porodici, prijateljima, komšijama, ali i ljudima koje nikada nismo upoznali. Dovoljno je da <strong>dvoje ljudi</strong> izdvoji sat vremena i daruje krv. Krvna grupa nije važna — <strong>svaka krvna grupa pomaže</strong>, jer se davanje evidentira u njeno ime.</p>
+    <p>Deset minuta koliko traje samo davanje krvi nekome je ceo život. Ovog puta — njen.</p>
+    <p class="thanks">Hvala vam od srca, u ime cele naše porodice.</p>
+  </section>
+
+  <!-- ======== INFO ======== -->
+  <section class="wrap">
+    <div class="card">
+      <h2>Gde i kada</h2>
+      <div class="row">
+        <div class="ico">📍</div>
+        <div>
+          <div class="label">Mesto</div>
+          <div class="val">Institut za transfuziju krvi Srbije<br>Svetog Save 39, Beograd</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="ico">🗓️</div>
+        <div>
+          <div class="label">Rok</div>
+          <div class="val">Najkasnije do <strong>subote, 11. jula</strong></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="ico">🩸</div>
+        <div>
+          <div class="label">Krvna grupa</div>
+          <div class="val">Bilo koja — svako davanje se računa</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="ico">📞</div>
+        <div>
+          <div class="label">Dodatne informacije</div>
+          <div class="val"><a href="tel:+38163367681">+381 63 367 681</a></div>
+        </div>
+      </div>
+      <div class="note">Ponesite ličnu kartu i na prijemu naglasite da krv dajete <strong>namenski, za pacijentkinju</strong> — ime i podatke dobićete pozivom na broj iznad.</div>
+    </div>
+
+    <!-- ======== POZOVITE CALLOUT ======== -->
+    <div class="call-out">
+      <div class="big">Za sva dodatna pitanja — pozovite!</div>
+      <div class="num"><a href="tel:+38163367681">+381 63 367 681</a></div>
+      <div class="small">Javljamo se u svako doba. Nijedno pitanje nije suvišno.</div>
+    </div>
+  </section>
+
+  <!-- ======== KAKO POMOĆI ======== -->
+  <section class="help wrap">
+    <h2>Kako možete da pomognete</h2>
+    <ol>
+      <li><strong>Dođite da darujete krv</strong> — u Institut, Svetog Save 39, do subote 11. jula.</li>
+      <li><strong>Javite se posle davanja</strong> — pozivom ili Viberom, da vas upišemo na stranicu i zahvalimo se.</li>
+      <li><strong>Podelite ovu stranicu</strong> — možda baš vaš kontakt spasi stvar. Jedan klik, dva davaoca.</li>
+    </ol>
+  </section>
+</main>
+
+<footer>
+  Hvala svakome ko je pročitao, podelio ili došao. ❤️<br>
+  Institut za transfuziju krvi Srbije · Svetog Save 39, Beograd
+</footer>
+
+<!-- Sticky dugmad -->
+<nav class="bar" aria-label="Brze akcije">
+  <a class="btn btn-call" href="tel:+38163367681">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8c1.5 2.9 3.7 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg>
+    Pozovi
+  </a>
+  <a class="btn btn-viber" href="viber://chat?number=%2B38163367681">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.5 2 2 5.9 2 10.7c0 2.7 1.4 5.1 3.6 6.7V22l3.5-2.2c.9.2 1.9.4 2.9.4 5.5 0 10-3.9 10-8.7S17.5 2 12 2zm3.9 12.1c-.2.5-1 .9-1.4 1-.4 0-.8.2-2.7-.6-2.3-1-3.8-3.3-3.9-3.5-.1-.2-.9-1.3-.9-2.4s.6-1.7.8-1.9c.2-.2.5-.3.6-.3h.5c.1 0 .3 0 .5.4l.7 1.8c.1.1.1.3 0 .4l-.3.5-.4.4c-.1.1-.2.3-.1.5.1.2.6 1 1.3 1.7.9.8 1.7 1.1 1.9 1.2.2.1.4.1.5-.1l.7-.8c.2-.2.3-.2.5-.1l1.6.8c.2.1.4.2.4.3.1.1.1.4-.1.7z"/></svg>
+    Viber
+  </a>
+  <a class="btn btn-whatsapp" href="https://wa.me/38163367681">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.8 14.2c-.2.7-1.2 1.3-2 1.4-.5.1-1.2.2-3.5-.7-2.9-1.2-4.8-4.2-4.9-4.4-.1-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5s.8 1.9.8 2c.1.1.1.3 0 .5l-.4.6-.4.5c-.1.1-.3.3-.1.6.1.3.7 1.2 1.5 1.9 1 .9 1.9 1.2 2.2 1.3.3.1.4.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.2.1.4.2.4.3.1.2.1.6-.2 1.5z"/></svg>
+    WhatsApp
+  </a>
+  <a class="btn btn-map" href="https://www.google.com/maps/search/?api=1&query=Institut+za+transfuziju+krvi+Srbije%2C+Svetog+Save+39%2C+Beograd" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
+    Lokacija
+  </a>
+</nav>
+
+<script>
+(function(){
+  var n = Math.min(DAVAOCI.length, POTREBNO);
+  var slots = document.getElementById('slots');
+  var dropFull = '<svg class="drop" viewBox="0 0 100 110" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M50 4 C50 4 14 48 14 72 a36 36 0 0 0 72 0 C86 48 50 4 50 4 Z" fill="#2E7D4F"/><path d="M38 68 l9 9 l17 -19" fill="none" stroke="#FAF6F1" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  var dropEmpty = '<svg class="drop" viewBox="0 0 100 110" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M50 4 C50 4 14 48 14 72 a36 36 0 0 0 72 0 C86 48 50 4 50 4 Z" fill="none" stroke="#D9CCC3" stroke-width="5" stroke-dasharray="9 7"/></svg>';
+
+  var html = '';
+  for (var i = 0; i < POTREBNO; i++) {
+    if (i < n) {
+      var d = DAVOCISafe(i);
+      html += '<div class="slot slot-full">' + dropFull +
+        '<div><div class="t1">' + esc(d.ime) + '</div>' +
+        '<div class="t2">✓ Darovao/la krv u Institutu</div>' +
+        '<div class="t3">' + esc(d.datum) + (d.vreme ? ' u ' + esc(d.vreme) : '') + '</div></div></div>';
+    } else {
+      html += '<div class="slot slot-empty">' + dropEmpty +
+        '<div><div class="t1">Slobodno mesto</div>' +
+        '<div class="t2">Možda baš vi? Čekamo vas do subote, 11. jula.</div></div></div>';
+    }
+  }
+  slots.innerHTML = html;
+
+  document.getElementById('progress-fill').style.width = (n / POTREBNO * 100) + '%';
+  document.getElementById('tracker-title').textContent =
+    'Obezbeđeno ' + n + ' od ' + POTREBNO + (POTREBNO === 2 ? ' jedinice krvi' : ' jedinica krvi');
+
+  if (n >= POTREBNO) {
+    document.body.classList.add('done');
+    document.getElementById('done-banner').style.display = 'block';
+    document.getElementById('eyebrow').textContent = 'Apel ispunjen · hvala od srca';
+    document.getElementById('headline').innerHTML = 'Oba davaoca su darovala krv. <em>Hvala vam!</em>';
+    document.getElementById('tracker-sub').textContent = 'Zahvaljujući ovim divnim ljudima, operacija može da se obavi.';
+  } else if (n === 1) {
+    document.getElementById('tracker-sub').textContent = 'Još samo jedan davalac je potreban — možda baš vi?';
+  }
+
+  function esc(s){ return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+  });}
+  function DAVOCISafe(i){ var d = DAVAOCI[i] || {}; return { ime: d.ime || 'Anonimni davalac', datum: d.datum || '', vreme: d.vreme || '' }; }
+})();
+</script>
+
+</body>
+</html>
